@@ -1,0 +1,115 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: blue;
+}
+.wrapper{
+    width: 420px;
+    background: #fff;
+    border-radius: 7px;
+    padding: 28px 28px 45px;
+    box-shadow: 0 1.25em 1.8em purple;
+}
+.wrapper header{
+    font-size: 28px;
+    font-weight: 500;
+    text-align: center;
+}
+.wrapper .search{
+    margin: 35px 0 18px;
+    position: relative;
+}
+.search input{
+    height: 53px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 0 42px;
+    font-size: 16px;
+}
+.search input::placeholder{
+    color: #b8b8b8;
+}
+.search input:focus{
+    border: 2px solid blue;
+    padding: 0 41px;
+}
+.search :where(i, span){
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+.search i{
+    left: 18px;
+    font-size: 16px;
+    pointer-events: none;
+}
+.search input:focus ~ i{
+    color: blue;
+}
+.search span{
+    right: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    display: none;
+}
+.search input:valid ~ span{
+    display: block;
+}
+.subheader{
+    font-weight: 600;
+}
+.wrapper .info-text{
+    font-size: 13px;
+    color: #9a9a9a;
+    margin: auto auto;
+    text-align: center;
+}
+.wrapper.active .info-text{
+    display: none;
+}
+.country-flag{
+    display: block;
+    width: 45%;
+    min-width: 7.5em;
+    margin: 1.8em auto 1.2em auto;
+}
+.capital{
+    display: flex;
+    gap: 10px;
+}
+.population{
+    display: flex;
+    gap: 10px;
+}
+.continent{
+    display: flex;
+    gap: 10px;
+}
+.currency{
+    display: flex;
+    gap: 10px;
+}
+.languages{
+    display: flex;
+    gap: 10px;  
+}
+#names{
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
