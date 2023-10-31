@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <script src="script.js" defer></script>
+  <title>Country API</title>
+</head>
+<body>
+<div class="wrapper">
+    <header>Country API</header>
+    <div class="search">
+    <input type="text" placeholder="Search a country" required>
+    <i class="bi bi-search"></i>
+    <span class="material-icons close-button">Close</span>
+    </div>
+    <p class="info-text">Enter a country name to find out more!</p>
+
+    <div class="content">
+        <div class="flag">
+            <p class="country-flag" id="flags"></p>
+            <p class="country-name" id="names"></p>
+        </div>
+        <div class="capital">
+            <p class="subheader">Capital: </p>
+            <p class="country-capital" id="capital">N/A</p>
+        </div>
+        <div class="continent">
+            <p class="subheader">Continent: </p>
+            <p class="country-continent" id="continent">N/A</p>
+        </div>
+        <div class="population">
+            <p class="subheader">Population: </p>
+            <p class="country-population" id="population">N/A</p>
+        </div>
+        <div class="currency">
+            <p class="subheader">Currency: </p>
+            <p class="country-currency" id="currency">N/A</p>
+        </div>
+        <div class="languages">
+            <p class="subheader">Common Languages: </p>
+            <p class="country-languages" id="languages">N/A</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
