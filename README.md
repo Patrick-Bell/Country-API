@@ -4,13 +4,11 @@ A collection of information relating to each country. Data such as currency, lan
 **Features**<br>
 [x] - Interactive Search bar<br>
 [x] - Interactive 'close' button<br>
-[x] - Provides information on countries across the world<br>
-[x] - Validation where a word cannot be found<br>
+[x] - Provides information on countries across the world using JS and Country API<br>
 [x] - Web/Mobile Responsive<br>
 
 **Technologies**<br>
 HTML, CSS, JavaScript, API<br>
 
 **Future Updates**<br>
-[] - Additional Information via Links<br>
-[] - Integrate some sort of audio
+[] - Need to add validation for when a country cannot be foundbr>
