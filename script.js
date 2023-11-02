@@ -1,58 +1,80 @@
-const searchInput = document.querySelector("input");
-const infoText = document.querySelector(".info-text");
-const closeButton = document.querySelector(".close-button");
-let countryName = searchInput.value;
-const moreInfoSection = document.querySelector(".content");
+document.addEventListener("DOMContentLoaded", function() {
+    const searchInput = document.querySelector("input");
+    const infoText = document.querySelector(".info-text");
+    const flags = document.querySelector("#flags"); 
+    const names = document.querySelector("#names"); 
+    const capital = document.querySelector("#capital"); 
+    const continent = document.querySelector("#continent");
+    const population = document.querySelector("#population"); 
+    const currency = document.querySelector("#currency"); 
+    const languages = document.querySelector("#languages");
+    const timezones = document.querySelector("#timezones");
+    const countryInfo = document.querySelector(".content");
+    const countryAbb = document.querySelector(".fifa");
+    const closeButton = document.querySelector(".bi-x-lg")
+  
+    searchInput.addEventListener("input", () => {
+      const countryName = searchInput.value;
+      let finalURL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
+      
+      // Check if the input is empty
+      
+      if (countryName === "") {
+        infoText.innerHTML = "Please enter a country name.";
+        infoText.style.display = "block"
+        countryInfo.classList.remove("active");
+        return;
+      }
+  
+      //fetching the api and extracting the data 
 
+      fetch(finalURL).then((response) => response.json()).then((data) => {
+          
+          console.log(data[0]);
+          console.log(data[0].capital[0]);
+          console.log(data[0].flags.svg);
+          console.log(data[0].name.common);
+          console.log(data[0].fifa);
+          console.log(data[0].continents[0]);
+          console.log(data[0].population);
+          console.log(Object.keys(data[0].currencies)[0]);
+          console.log(data[0].currencies[Object.keys(data[0].currencies)].name);
+          console.log(Object.values(data[0].languages).toString().split(",").join(", "));
+          console.log(data[0].timezones[0]);
 
-closeButton.addEventListener("click", () => {
-    moreInfoSection.style.display = "none";
-    searchInput.value = "";
-    infoText.innerHTML = "Type a country to find out more!";    
-    infoText.style.display = "block";
-    infoText.style.color = "#7e7e7e";
-});
+        //placing the extracted data where I want it 
 
-function search(countryName) {
-    searchInput.value = countryName;
-    fetchAPI(countryName);
-}
+        countryInfo.classList.add("active");
+        infoText.style.display = "";
+        infoText.innerHTML = "";
+          flags.innerHTML = `<img src="${data[0].flags.svg}" class="country-flag">`;
+          names.innerHTML = `${data[0].name.common}`
+          countryAbb.innerHTML = `(${data[0].fifa})`;
+          capital.innerHTML = `${data[0].capital[0]}`;
+          continent.innerHTML = `${data[0].continents[0]}`;
+          population.innerHTML = `${data[0].population.toLocaleString()}`;
+          currency.innerHTML = `${data[0].currencies[Object.keys(data[0].currencies)].name}`;
+          languages.innerHTML = `${Object.values(data[0].languages).toString().split(",").join(", ")}`;
+          timezones.innerHTML = `${data[0].timezones[0]}`;
+          infoText.style.display = "none";
 
-function fetchAPI(countryName) {
-    wrapper.classList.remove("active");
-    infoText.style.color = "#000";
-    infoText.innerHTML = `Searching the country of <span>"${countryName}..."</span>`;
-    // Reset the display property to make the moreInfoSection visible
-    moreInfoSection.style.display = "block";
-    searchInput.value = countryName; // Update the search input with the new word
-}
+          // handling countries with no abbreviations, to not show. e.g. United Kingdom
 
-searchInput.addEventListener("click", () => {
-    let finalURL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`
-    console.log(finalURL);
-    fetch(finalURL).then((response) => response.json()).then((data) => {
-        infoText.innerHTML = "Searching for country..."
-        infoText.style.display = "block";
-        console.log(data[0]);
-        console.log(data[0].capital[0]);
-        console.log(data[0].flags.svg);
-        console.log(data[0].name.common);
-        console.log(data[0].continents[0]);
-        console.log(data[0].population);
-        console.log(Object.keys(data[0].currencies)[0]);
-        console.log(data[0].currencies[Object.keys(data[0].currencies)].name);
-        console.log(Object.values(data[0].languages).toString().split(",").join(", "));
+          if (data[0].fifa === undefined){
+            countryAbb.style.display = "none";
+          } else {
+            countryAbb.style.display = "inline";
+          }
+          
+        })
+        
+        //close button to reset
 
-    
-        flags.innerHTML = `<img src="${data[0].flags.svg}" class="country-flag">`
-        names.innerHTML = `${data[0].name.common}`
-        capital.innerHTML = `${data[0].capital[0]}`;
-        continent.innerHTML =`${data[0].continents[0]}`;
-        population.innerHTML = `${data[0].population}`;
-        currency.innerHTML = `${data[0].currencies[Object.keys(data[0].currencies)].name}`;
-        languages.innerHTML = `${Object.values(data[0].languages).toString().split(",").join(", ")}`
-        infoText.style.display = "none";
-
+        closeButton.addEventListener("click", () => {
+            countryInfo.classList.remove("active");
+            infoText.innerHTML = "Enter a country name to find out more!"
+            infoText.style.display = "block"
+            searchInput.value = ""
     });
-
+  });
 })
