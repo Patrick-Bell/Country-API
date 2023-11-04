@@ -11,4 +11,4 @@ A collection of information relating to each country. Data such as currency, lan
 HTML, CSS, JavaScript, API<br>
 
 **Future Updates**<br>
-[] - Need to add validation for when a country cannot be foundbr>
+[] - Need to add validation for when a country cannot be found<br>
