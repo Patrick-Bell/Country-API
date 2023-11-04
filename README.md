@@ -6,9 +6,10 @@ A collection of information relating to each country. Data such as currency, lan
 [x] - Interactive 'close' button<br>
 [x] - Provides information on countries across the world using JS and Country API<br>
 [x] - Web/Mobile Responsive<br>
+[x] - Live error message for when a country cannot be found<br>
 
 **Technologies**<br>
 HTML, CSS, JavaScript, API<br>
 
 **Future Updates**<br>
-[] - Need to add validation for when a country cannot be found<br>
+
