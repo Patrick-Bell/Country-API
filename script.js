@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const countryInfo = document.querySelector(".content");
     const countryAbb = document.querySelector(".fifa");
     const closeButton = document.querySelector(".bi-x-lg")
-        
+         
     searchInput.addEventListener("input", () => {
       const countryName = searchInput.value;
       let finalURL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
