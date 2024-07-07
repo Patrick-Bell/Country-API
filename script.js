@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {     
+document.addEventListener("DOMContentLoaded", function() {      
     const searchInput = document.querySelector("input");
     const infoText = document.querySelector(".info-text");
     const flags = document.querySelector("#flags"); 
